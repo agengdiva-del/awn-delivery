@@ -1,0 +1,10 @@
+{
+  "name": "Arjawinangun Send",
+  "description": "Hyperlocal multi-vendor delivery marketplace connecting customers, local merchants/UMKM, and independent couriers in Arjawinangun, Cirebon.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

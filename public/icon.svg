@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="pinkGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF2B85" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+    <linearGradient id="pinkCircle" x1="0" y1="0" x2="0" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#pinkGrad)"/>
+  <circle cx="256" cy="256" r="210" fill="url(#pinkCircle)" opacity="0.9"/>
+  <!-- Decorative Cirebon cloud/gapura arch hint -->
+  <path d="M120 400H392" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0.3"/>
+  <!-- Courier & Scooter illustration -->
+  <g transform="translate(60, 80) scale(0.76)">
+    <!-- Helmet & Head -->
+    <circle cx="250" cy="140" r="45" fill="#FFFFFF"/>
+    <path d="M220 140H285C295 140 295 156 280 162H230C218 162 215 140 220 140Z" fill="#BE123C"/>
+    <!-- Body with Pink/White Outfit -->
+    <path d="M205 180C220 170 260 170 280 180L310 260H220L190 220Z" fill="#FFFFFF"/>
+    <path d="M215 190L285 190L300 250H230Z" fill="#E11D48"/>
+    <!-- Backpack Delivery Box -->
+    <rect x="135" y="160" width="70" height="90" rx="14" fill="#F43F5E"/>
+    <rect x="145" y="175" width="50" height="15" rx="4" fill="#FFFFFF"/>
+    <line x1="140" y1="210" x2="200" y2="210" stroke="#BE123C" stroke-width="4"/>
+    <!-- Scooter Body -->
+    <path d="M160 330L260 330L340 300L380 230L360 220L310 280L210 280L160 330Z" fill="#FFFFFF"/>
+    <!-- Wheels -->
+    <circle cx="160" cy="350" r="50" fill="#1E293B"/>
+    <circle cx="160" cy="350" r="26" fill="#F8FAFC"/>
+    <circle cx="360" cy="350" r="50" fill="#1E293B"/>
+    <circle cx="360" cy="350" r="26" fill="#F8FAFC"/>
+    <!-- Speed streaks -->
+    <path d="M70 200H120M50 230H110M80 260H130" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

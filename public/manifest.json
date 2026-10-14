@@ -1,0 +1,17 @@
+{
+  "name": "Arjawinangun Delivery",
+  "short_name": "Arjawinangun Delivery",
+  "description": "Hyperlocal marketplace & delivery for Arjawinangun, Cirebon",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E11D48",
+  "theme_color": "#E11D48",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

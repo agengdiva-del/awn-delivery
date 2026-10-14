@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <script>
+      (function() {
+        // Prevent Chrome extension TypeError when interceptors try to set window.fetch
+        try {
+          var origFetch = window.fetch ? window.fetch.bind(window) : null;
+          var _fetchRef = origFetch;
+          var fetchProp = {
+            get: function() { return _fetchRef; },
+            set: function(v) { _fetchRef = v; },
+            configurable: true,
+            enumerable: true
+          };
+          try { Object.defineProperty(window, 'fetch', fetchProp); } catch (e) {}
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try { Object.defineProperty(Window.prototype, 'fetch', fetchProp); } catch (e) {}
+          }
+        } catch (err) {}
+
+        // Suppress errors originating from browser extensions (e.g. chrome-extension://)
+        function isExtError(msg, url, stack) {
+          var sMsg = String(msg || '');
+          var sUrl = String(url || '');
+          var sStack = String(stack || '');
+          return sUrl.indexOf('chrome-extension://') !== -1 ||
+                 sMsg.indexOf('chrome-extension://') !== -1 ||
+                 sStack.indexOf('chrome-extension://') !== -1 ||
+                 sMsg.indexOf('Cannot set property fetch') !== -1;
+        }
+
+        window.addEventListener('error', function(e) {
+          if (isExtError(e.message, e.filename, e.error && e.error.stack)) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            return true;
+          }
+        }, true);
+
+        var prevOnError = window.onerror;
+        window.onerror = function(msg, url, line, col, error) {
+          if (isExtError(msg, url, error && error.stack)) {
+            return true;
+          }
+          if (typeof prevOnError === 'function') {
+            return prevOnError.apply(this, arguments);
+          }
+        };
+
+        window.addEventListener('unhandledrejection', function(e) {
+          var r = e.reason;
+          if (isExtError(r && r.message, '', r && r.stack)) {
+            e.preventDefault();
+          }
+        }, true);
+      })();
+    </script>
+    <title>Arjawinangun Delivery - Hyperlocal Delivery & Super-App Arjawinangun Cirebon</title>
+    <meta name="description" content="Arjawinangun Delivery - Platform hyperlocal penghubung Pelanggan, Toko/UMKM, dan Kurir independen di Arjawinangun, Cirebon. Pesan makanan, belanja, kurir instan, dan bayar tagihan." />
+    <meta property="og:title" content="Arjawinangun Delivery - Lebih Dekat, Lebih Cepat" />
+    <meta property="og:description" content="Dari Arjawinangun Untuk Anda. Makanan, Belanja, Kirim Barang & Bayar Tagihan." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#E11D48" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Arjawinangun Delivery" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-pink-50/30 text-slate-900 font-sans antialiased selection:bg-pink-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
